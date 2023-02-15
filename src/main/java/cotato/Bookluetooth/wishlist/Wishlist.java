@@ -1,6 +1,6 @@
 package cotato.Bookluetooth.wishlist;
 
-import cotato.Bookluetooth.review.BaseTimeEntity;
+import cotato.Bookluetooth.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

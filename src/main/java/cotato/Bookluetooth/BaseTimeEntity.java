@@ -1,4 +1,4 @@
-package cotato.Bookluetooth.review;
+package cotato.Bookluetooth;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

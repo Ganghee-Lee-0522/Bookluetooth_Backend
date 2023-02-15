@@ -1,6 +1,6 @@
 package cotato.Bookluetooth.review.like;
 
-import cotato.Bookluetooth.review.BaseTimeEntity;
+import cotato.Bookluetooth.BaseTimeEntity;
 import cotato.Bookluetooth.review.Review;
 import lombok.*;
 
