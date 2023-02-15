@@ -1,7 +1,9 @@
-/*
 package cotato.Bookluetooth.comment;
 
 import cotato.Bookluetooth.BaseTimeEntity;
+import cotato.Bookluetooth.review.Review;
+import cotato.Bookluetooth.users.domain.Users;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -37,4 +39,3 @@ public class Comment extends BaseTimeEntity {
         this.commentContent = commentContent;
     }
 }
-*/
