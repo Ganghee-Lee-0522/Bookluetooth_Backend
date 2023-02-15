@@ -1,5 +1,6 @@
 package cotato.Bookluetooth.review;
 
+import cotato.Bookluetooth.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.*;
