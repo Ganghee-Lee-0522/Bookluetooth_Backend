@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userService;
-    private final OAuthAttributes oAuthAttributes;
+    //private final OAuthAttributes oAuthAttributes;
 
     // 회원 정보 조회
     @GetMapping("/userinfo")

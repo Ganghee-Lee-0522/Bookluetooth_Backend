@@ -2,9 +2,9 @@ package cotato.Bookluetooth.users.service;
 
 import cotato.Bookluetooth.ResponseDto;
 import cotato.Bookluetooth.config.auth.SessionUser;
+import cotato.Bookluetooth.users.dto.UserResponseDto;
 import cotato.Bookluetooth.users.domain.UserRepository;
 import cotato.Bookluetooth.users.domain.Users;
-import cotato.Bookluetooth.users.dto.UserResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +24,7 @@ public class UserService {
                 throw new Exception("존재하지 않는 사용자");
             }
             else {
-                Optional<Users> users = userRepository.findByEmail(sessionUser.getUserEmail());
+                Optional<Users> users = userRepository.findByUserEmail(sessionUser.getUserEmail());
                 if (users.isEmpty()) {
                     throw new Exception("존재하지 않는 사용자");
                 }
@@ -44,7 +44,7 @@ public class UserService {
                 throw new Exception("필수 데이터 누락");
             }
             else {
-                Optional<Users> originalUser = userRepository.findByEmail(sessionUser.getUserEmail());
+                Optional<Users> originalUser = userRepository.findByUserEmail(sessionUser.getUserEmail());
 
                 if(originalUser.get().getUserName().equals(newName)) {
                     throw new Exception("잘못된 요청");
@@ -67,7 +67,7 @@ public class UserService {
                 throw new Exception("필수 데이터 누락");
             }
             else {
-                Optional<Users> originalUser = userRepository.findByEmail(sessionUser.getUserEmail());
+                Optional<Users> originalUser = userRepository.findByUserEmail(sessionUser.getUserEmail());
 
                 if(originalUser.get().getUserImage().equals(newImage)) {
                     throw new Exception("잘못된 요청");
@@ -87,7 +87,7 @@ public class UserService {
                 throw new Exception("존재하지 않는 사용자");
             }
             else {
-                Optional<Users> users = userRepository.findByEmail(sessionUser.getUserEmail());
+                Optional<Users> users = userRepository.findByUserEmail(sessionUser.getUserEmail());
                 if (users.isEmpty()) {
                     throw new Exception("존재하지 않는 사용자");
                 }
