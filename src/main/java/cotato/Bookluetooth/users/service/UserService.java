@@ -17,10 +17,10 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    @Transactional
+    @Transactional(readOnly = true)
     public UserResponseDto getUserInfo(SessionUser sessionUser) throws Exception {
         try {
-            if(sessionUser == null) {
+            if(sessionUser.getUserEmail().isEmpty()) {
                 throw new Exception("존재하지 않는 사용자");
             }
             else {

@@ -1,4 +1,4 @@
-package cotato.Bookluetooth.comment;
+package cotato.Bookluetooth.comment.domain;
 
 import cotato.Bookluetooth.BaseTimeEntity;
 import cotato.Bookluetooth.review.Review;
@@ -20,13 +20,11 @@ public class Comment extends BaseTimeEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reviewId")
-    @Column(nullable = false)
     private Review reviewId;
-    //@OneToMany(mappedBy = "reviewComment")를 Review의 reviewId에 추가할 것
+    //@OneToMany(mappedBy = "reviewComment")를 Review의 reviewId에 추가할 것(필수인가?)
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")
-    @Column(nullable = false)
     private Users userId;
 
     @Column(nullable = false)
@@ -37,5 +35,11 @@ public class Comment extends BaseTimeEntity {
         this.reviewId = reviewId;
         this.userId = userId;
         this.commentContent = commentContent;
+    }
+
+    public Comment update(String commentContent) {
+        this.commentContent = commentContent;
+
+        return this;
     }
 }
