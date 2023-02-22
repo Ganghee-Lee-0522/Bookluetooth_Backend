@@ -45,7 +45,7 @@ public class ReviewService {
         return new ReviewResponseDto(entity);
     }
 
-    // TODO: 팔로잉하는 user들의 리뷰 모두 가져오기 -> 피드 구현을 위해 필요할듯
+    // TODO: 팔로잉하는 user들의 리뷰 모두 가져오기 -> 피드 구현을 위해 필요할듯 합니다.
     @Transactional
     public List<ReviewResponseDto> findByUserId(Long userId) {
         return reviewRepository.findByUserId(userId).stream()
