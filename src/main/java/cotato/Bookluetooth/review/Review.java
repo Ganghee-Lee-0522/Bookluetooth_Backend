@@ -1,6 +1,10 @@
 package cotato.Bookluetooth.review;
 
 import cotato.Bookluetooth.BaseTimeEntity;
+<<<<<<< HEAD
+=======
+import cotato.Bookluetooth.users.domain.Users;
+>>>>>>> honey
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,9 +21,9 @@ public class Review extends BaseTimeEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
 
-    // TODO : userId 외래키로 받아오기
-    @Column(nullable = false)
-    private Long userId;
+    @ManyToOne(targetEntity = Users.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private Users users;
 
     @Column(length = 20, nullable = false)
     private String bookIsbn;
@@ -40,9 +44,9 @@ public class Review extends BaseTimeEntity implements Serializable {
     private String bookAuthor;
 
     @Builder
-    public Review(Long userId, String bookIsbn, String reviewContent, BigDecimal bookPoint,
+    public Review(Users users, String bookIsbn, String reviewContent, BigDecimal bookPoint,
                   String bookTitle, String bookImage, String bookAuthor){
-        this.userId = userId;
+        this.users = users;
         this.bookIsbn = bookIsbn;
         this.reviewContent = reviewContent;
         this.bookPoint = bookPoint;
