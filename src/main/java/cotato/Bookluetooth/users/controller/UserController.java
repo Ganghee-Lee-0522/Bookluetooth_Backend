@@ -65,6 +65,7 @@ public class UserController {
         }
     }
 
+    /*
     // 로그인
     @GetMapping("/")
     public ResponseEntity loginUser() {
@@ -76,4 +77,5 @@ public class UserController {
     public ResponseEntity logoutUser() {
         return ResponseEntity.ok().body(ResponseDto.response(200, "로그아웃 성공"));
     }
+     */
 }
