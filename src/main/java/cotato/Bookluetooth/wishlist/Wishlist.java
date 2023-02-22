@@ -1,10 +1,7 @@
 package cotato.Bookluetooth.wishlist;
 
 import cotato.Bookluetooth.BaseTimeEntity;
-<<<<<<< HEAD
-=======
 import cotato.Bookluetooth.users.domain.Users;
->>>>>>> honey
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

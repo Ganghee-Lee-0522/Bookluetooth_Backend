@@ -1,10 +1,7 @@
 package cotato.Bookluetooth.review;
 
 import cotato.Bookluetooth.BaseTimeEntity;
-<<<<<<< HEAD
-=======
 import cotato.Bookluetooth.users.domain.Users;
->>>>>>> honey
 import lombok.*;
 
 import javax.persistence.*;

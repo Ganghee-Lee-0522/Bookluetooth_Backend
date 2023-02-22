@@ -113,14 +113,6 @@ public class ReviewService {
         }
     }
 
-<<<<<<< HEAD
-    // TODO: 팔로잉하는 user들의 리뷰 모두 가져오기 -> 피드 구현을 위해 필요할듯 합니다.
-    @Transactional
-    public List<ReviewResponseDto> findByUserId(Long userId) {
-        return reviewRepository.findByUserId(userId).stream()
-                .map(ReviewResponseDto::new)
-                .collect(Collectors.toList());
-=======
     // TODO: 팔로잉하는 user들의 리뷰 모두 가져오기 -> 피드 구현을 위해 필요할듯
     @Transactional(readOnly = true)
     public List<ReviewResponseDto> findByUserId(Long userId) throws Exception{
@@ -144,7 +136,6 @@ public class ReviewService {
         catch (Exception e) {
             throw new Exception(e.getMessage());
         }
->>>>>>> honey
     }
 
     @Transactional
