@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .headers().frameOptions().disable() // h2-console 화면 사용을 위한 것
                 .and()
                     .authorizeRequests() // url별 권한관리
-                    .antMatchers("/logout", "/h2-console/**").permitAll()
+                    .antMatchers("/logout", "/h2-console/**", "/logoutSuccess", "/").permitAll()
                     .antMatchers("/comment/**", "/review/**", "/wishlist/**", "/follow/**", "/follower/**",
                             "/followee/**", "/userinfo/**").hasRole(Role.USERS.name())
                     .anyRequest().authenticated()
