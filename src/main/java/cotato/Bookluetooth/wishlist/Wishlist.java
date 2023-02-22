@@ -1,6 +1,7 @@
 package cotato.Bookluetooth.wishlist;
 
 import cotato.Bookluetooth.BaseTimeEntity;
+import cotato.Bookluetooth.users.domain.Users;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,9 @@ public class Wishlist extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long wishlistId;
 
-    // TODO : userId 외래키로 받아오기
-    @Column(nullable = false)
-    private Long userId;
+    @ManyToOne(targetEntity = Users.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private Users users;
 
     @Column(nullable = false)
     private String bookIsbn;
@@ -35,9 +36,9 @@ public class Wishlist extends BaseTimeEntity {
     private String bookAuthor;
 
     @Builder
-    public Wishlist(Long userId, String bookIsbn, String bookTitle,
+    public Wishlist(Users users, String bookIsbn, String bookTitle,
                     String bookImage, String bookAuthor){
-        this.userId = userId;
+        this.users = users;
         this.bookIsbn = bookIsbn;
         this.bookTitle = bookTitle;
         this.bookImage = bookImage;

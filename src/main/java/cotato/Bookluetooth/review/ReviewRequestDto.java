@@ -20,24 +20,12 @@ public class ReviewRequestDto {
 
     @Builder
     public ReviewRequestDto(Review review) {
-        this.userId = review.getUserId();
+        this.userId = review.getUsers().getUserId();
         this.bookIsbn = review.getBookIsbn();
         this.reviewContent = review.getReviewContent();
         this.bookPoint = review.getBookPoint();
         this.bookTitle = review.getBookTitle();
         this.bookImage = review.getBookImage();
         this.bookAuthor = review.getBookAuthor();
-    }
-
-    public Review toEntity() {
-        return Review.builder()
-                .userId(userId)
-                .bookIsbn(bookIsbn)
-                .reviewContent(reviewContent)
-                .bookPoint(bookPoint)
-                .bookTitle(bookTitle)
-                .bookImage(bookImage)
-                .bookAuthor(bookAuthor)
-                .build();
     }
 }

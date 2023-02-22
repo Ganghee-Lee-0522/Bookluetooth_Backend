@@ -16,20 +16,11 @@ public class WishlistRequestDto {
 
     @Builder
     public WishlistRequestDto(Wishlist wishlist) {
-        this.userId = wishlist.getUserId();
+        this.userId = wishlist.getUsers().getUserId();
         this.bookIsbn = wishlist.getBookIsbn();
         this.bookTitle = wishlist.getBookTitle();
         this.bookImage = wishlist.getBookImage();
         this.bookAuthor = wishlist.getBookAuthor();
     }
 
-    public Wishlist toEntity() {
-        return Wishlist.builder()
-                .userId(userId)
-                .bookIsbn(bookIsbn)
-                .bookTitle(bookTitle)
-                .bookImage(bookImage)
-                .bookAuthor(bookAuthor)
-                .build();
-    }
 }

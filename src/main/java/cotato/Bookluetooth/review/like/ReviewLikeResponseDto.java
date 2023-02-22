@@ -9,6 +9,6 @@ public class ReviewLikeResponseDto {
 
     public ReviewLikeResponseDto(ReviewLike reviewLike){
         this.reviewId = reviewLike.getReview().getReviewId();
-        this.userId = reviewLike.getUserId();
+        this.userId = reviewLike.getUsers().getUserId();
     }
 }

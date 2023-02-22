@@ -12,9 +12,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReviewLikeId implements Serializable {
-
-//    @Column(name = "reviewId")
     private Long review;
-
-    private Long userId;
+    private Long users;
 }

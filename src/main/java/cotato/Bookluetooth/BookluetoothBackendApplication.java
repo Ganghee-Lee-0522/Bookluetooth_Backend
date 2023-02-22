@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
+//@SpringBootApplication
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class BookluetoothBackendApplication {
 	public static void main(String[] args) {

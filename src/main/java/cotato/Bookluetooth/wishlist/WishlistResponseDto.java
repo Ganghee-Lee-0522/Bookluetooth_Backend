@@ -13,7 +13,7 @@ public class WishlistResponseDto {
 
     public WishlistResponseDto(Wishlist wishlist){
         this.wishlistId = wishlist.getWishlistId();
-        this.userId = wishlist.getUserId();
+        this.userId = wishlist.getUsers().getUserId();
         this.bookIsbn = wishlist.getBookIsbn();
         this.bookTitle = wishlist.getBookTitle();
         this.bookImage = wishlist.getBookImage();
