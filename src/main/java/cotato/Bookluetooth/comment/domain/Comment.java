@@ -21,7 +21,6 @@ public class Comment extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reviewId")
     private Review reviewId;
-    //@OneToMany(mappedBy = "reviewComment")를 Review의 reviewId에 추가할 것(필수인가?)
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")

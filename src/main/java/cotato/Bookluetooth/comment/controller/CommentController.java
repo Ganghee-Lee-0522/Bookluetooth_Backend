@@ -52,10 +52,13 @@ public class CommentController {
     }
 
     // 댓글 삭제
-    //@DeleteMapping("/delete/{commentId}")
-    //public ResponseEntity deleteComment(@PathVariable("commentId") Long commentId) {
-   //     try {
-   //         CommentReques
-    //    }
-   // }
+    @DeleteMapping("/delete/{commentId}")
+    public ResponseEntity deleteComment(@PathVariable("commentId") Long commentId) {
+        try {
+            ResponseDto responseDto = commentService.deleteComment(commentId);
+            return ResponseEntity.ok().body(ResponseDto.response(200, responseDto.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(ResponseDto.response(400, e.getMessage()));
+        }
+    }
 }
