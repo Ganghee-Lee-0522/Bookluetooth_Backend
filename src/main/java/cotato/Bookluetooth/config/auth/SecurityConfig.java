@@ -28,10 +28,11 @@ public class SecurityConfig {
                     .anyRequest().authenticated()
                 .and()
                     .logout()
-                        .logoutSuccessUrl("/oauth2/authorization/google")
+                        .logoutSuccessUrl("/logoutSuccess")
                 .and()
                     .oauth2Login()
                         .userInfoEndpoint()
+
                 .userService((OAuth2UserService<OAuth2UserRequest, OAuth2User>) customOAuth2UserService);
 
         return http.build();
