@@ -2,6 +2,8 @@ package cotato.Bookluetooth.review;
 
 import cotato.Bookluetooth.ResponseDto;
 import cotato.Bookluetooth.config.auth.SessionUser;
+import cotato.Bookluetooth.follow.Follow;
+import cotato.Bookluetooth.follow.FollowRepository;
 import cotato.Bookluetooth.review.like.*;
 import cotato.Bookluetooth.users.domain.UserRepository;
 import cotato.Bookluetooth.users.domain.Users;
@@ -9,8 +11,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @Service
@@ -19,6 +24,7 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
     private final ReviewLikeRepository reviewLikeRepository;
     private final UserRepository userRepository;
+    private final FollowRepository followRepository;
 
     @Transactional
     public ResponseDto saveReview(ReviewRequestDto requestDto) throws Exception{
@@ -114,6 +120,35 @@ public class ReviewService {
     }
 
     // TODO: 팔로잉하는 user들의 리뷰 모두 가져오기 -> 피드 구현을 위해 필요할듯
+    public List<ReviewResponseDto> findFollowerReview(SessionUser users) throws Exception{
+        try {
+            List<Review> reviewList = new ArrayList<>();
+
+            Users user = userRepository.findByUserEmail(users.getUserEmail()).get();
+
+            List<Follow> followList = followRepository.findByFolloweeUser_UserId(user.getUserId())
+                    .stream().collect(Collectors.toList());
+
+            List<Long> userIdList = followList.stream().map(got -> got.getFollowerUser()
+                    .getUserId()).collect(Collectors.toList());
+
+            ListIterator<Long> longListIterator = userIdList.listIterator();
+            while(longListIterator.hasNext()){
+                List<Review> reviews = reviewRepository.findByUsers_UserId(longListIterator.next());
+                ListIterator<Review> reviewListIterator = reviews.listIterator();
+                while (reviewListIterator.hasNext()){
+                    reviewList.add(reviewListIterator.next());
+                }
+            }
+
+            return reviewList.stream().map(ReviewResponseDto::new)
+                    .collect(Collectors.toList());
+        }
+        catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
     @Transactional(readOnly = true)
     public List<ReviewResponseDto> findByUserId(Long userId) throws Exception{
         try {
@@ -153,7 +188,6 @@ public class ReviewService {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
-
     }
 
     @Transactional

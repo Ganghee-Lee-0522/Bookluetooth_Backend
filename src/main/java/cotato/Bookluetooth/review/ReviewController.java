@@ -6,6 +6,7 @@ import cotato.Bookluetooth.config.auth.SessionUser;
 import cotato.Bookluetooth.review.like.ReviewLikeRequestDto;
 import cotato.Bookluetooth.review.like.ReviewLikeResponseDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -85,6 +86,19 @@ public class ReviewController {
     public ResponseEntity<ResponseDto<List<ReviewResponseDto>>> getReviewByUserId(@PathVariable Long userId){
         try {
             List<ReviewResponseDto> reviewResponseDtoList = reviewService.findByUserId(userId);
+            return ResponseEntity.ok().body(ResponseDto.response(200, "리뷰 정보 가져오기 성공",
+                    reviewResponseDtoList));
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().body(ResponseDto.response(400, e.getMessage()));
+        }
+    }
+
+    // 팔로어 리뷰 조회
+    @GetMapping("/follower")
+    public ResponseEntity<ResponseDto<List<ReviewResponseDto>>> getFollowerReview(@LoginUser SessionUser users){
+        try {
+            List<ReviewResponseDto> reviewResponseDtoList = reviewService.findFollowerReview(users);
             return ResponseEntity.ok().body(ResponseDto.response(200, "리뷰 정보 가져오기 성공",
                     reviewResponseDtoList));
         }
