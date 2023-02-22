@@ -102,4 +102,18 @@ public class CommentService {
         }
     }
     // 댓글 삭제
+    @Transactional
+    public ResponseDto deleteComment(Long commentId) throws Exception {
+        try {
+            Optional<Comment> comment = commentRepository.findByCommentId(commentId);
+            if(comment.isEmpty()) {
+                throw new Exception("해당 리뷰가 존재하지 않음");
+            } else {
+                commentRepository.deleteById(commentId);
+                return new ResponseDto(200, "댓글 삭제 성공");
+            }
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
 }

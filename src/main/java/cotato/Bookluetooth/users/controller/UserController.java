@@ -64,4 +64,16 @@ public class UserController {
             return ResponseEntity.badRequest().body(ResponseDto.response(400, e.getMessage()));
         }
     }
+
+    // 로그인
+    @GetMapping("/")
+    public ResponseEntity loginUser() {
+        return ResponseEntity.ok().body(ResponseDto.response(200, "로그인 성공"));
+    }
+
+    // 로그아웃
+    @GetMapping("/logoutSuccess")
+    public ResponseEntity logoutUser() {
+        return ResponseEntity.ok().body(ResponseDto.response(200, "로그아웃 성공"));
+    }
 }

@@ -8,11 +8,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Comment extends BaseTimeEntity {
+public class Comment extends BaseTimeEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,6 @@ public class Comment extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reviewId")
     private Review reviewId;
-    //@OneToMany(mappedBy = "reviewComment")를 Review의 reviewId에 추가할 것(필수인가?)
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId")

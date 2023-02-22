@@ -5,11 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Users {
+public class Users implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
