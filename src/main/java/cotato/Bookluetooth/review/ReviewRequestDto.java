@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class ReviewRequestDto {
 
-    private Long userId;
     private String bookIsbn;
     private String reviewContent;
     private BigDecimal bookPoint;
@@ -20,7 +19,6 @@ public class ReviewRequestDto {
 
     @Builder
     public ReviewRequestDto(Review review) {
-        this.userId = review.getUsers().getUserId();
         this.bookIsbn = review.getBookIsbn();
         this.reviewContent = review.getReviewContent();
         this.bookPoint = review.getBookPoint();

@@ -6,7 +6,6 @@ import cotato.Bookluetooth.config.auth.SessionUser;
 import cotato.Bookluetooth.review.like.ReviewLikeRequestDto;
 import cotato.Bookluetooth.review.like.ReviewLikeResponseDto;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +20,10 @@ public class ReviewController {
 
     // 리뷰 등록
     @PostMapping("/post")
-    public ResponseEntity<ResponseDto<Object>> postReview(@RequestBody ReviewRequestDto requestDto){
+    public ResponseEntity<ResponseDto<Object>> postReview(@LoginUser SessionUser user,
+                                                          @RequestBody ReviewRequestDto requestDto){
         try{
-            ResponseDto responseDto = reviewService.saveReview(requestDto);
+            ResponseDto responseDto = reviewService.saveReview(user, requestDto);
             return ResponseEntity.ok().body(ResponseDto.response(responseDto.getStatus(), responseDto.getMessage()));
         }
         catch (Exception e){

@@ -73,7 +73,7 @@ public class FollowController {
     public ResponseEntity<ResponseDto<List<FollowResponseDto>>> getFolloweeByUserId(@PathVariable Long userId){
         try {
             List<FollowResponseDto> followResponseDto = followService.findFolloweeByUserId(userId);
-            return ResponseEntity.ok().body(ResponseDto.response(200, "팔로워 정보 가져오기 성공",
+            return ResponseEntity.ok().body(ResponseDto.response(200, "팔로이 정보 가져오기 성공",
                     followResponseDto));
         }
         catch (Exception e){

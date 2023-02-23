@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @Service
@@ -27,17 +26,16 @@ public class ReviewService {
     private final FollowRepository followRepository;
 
     @Transactional
-    public ResponseDto saveReview(ReviewRequestDto requestDto) throws Exception{
+    public ResponseDto saveReview(SessionUser user, ReviewRequestDto requestDto) throws Exception{
         try {
-            if(requestDto == null) {
+            if(user == null || requestDto == null) {
                 throw new IllegalArgumentException("필수 데이터 누락");
             }
             else {
-                Long userId = requestDto.getUserId();
-                Users user = userRepository.findById(userId)
-                        .orElseThrow(()-> new IllegalArgumentException("유저 ID 오류, userId = " + userId));
+                Users writer = userRepository.findByUserEmail(user.getUserEmail())
+                        .orElseThrow(()-> new IllegalArgumentException("유저 ID 오류"));
                 reviewRepository.save(Review.builder()
-                        .users(user)
+                        .users(writer)
                         .bookIsbn(requestDto.getBookIsbn())
                         .reviewContent(requestDto.getReviewContent())
                         .bookPoint(requestDto.getBookPoint())
@@ -45,7 +43,7 @@ public class ReviewService {
                         .bookImage(requestDto.getBookImage())
                         .bookAuthor(requestDto.getBookAuthor())
                         .build());
-                return new ResponseDto(200, "리뷰 수정 성공");
+                return new ResponseDto(200, "리뷰 등록 성공");
             }
         } catch (Exception e) {
             throw new Exception(e.getMessage());

@@ -22,7 +22,6 @@ import static java.lang.Double.parseDouble;
 import static org.assertj.core.api.Assertions.*;
 
 @DataJpaTest
-//@SpringBootTest
 class ReviewRepositoryTest {
 
     @Autowired
