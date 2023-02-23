@@ -72,10 +72,12 @@ public class UserController {
         return ResponseEntity.ok().body(ResponseDto.response(200, "로그인 성공"));
     }
 
+
     // 로그아웃
     @GetMapping("/logoutSuccess")
     public ResponseEntity logoutUser() {
         return ResponseEntity.ok().body(ResponseDto.response(200, "로그아웃 성공"));
     }
+
      */
 }
