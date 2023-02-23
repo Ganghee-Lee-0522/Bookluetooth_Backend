@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LogController {
 
     @GetMapping("/")
-    public String login() {
-        return "login";
+    public String loggedin() {
+        return "loginSuccess";
     }
 
     @GetMapping("/logoutSuccess")
-    public String logout() {
-        return "logout";
+    public String loggedout() {
+        return "logoutSuccess";
     }
 }
