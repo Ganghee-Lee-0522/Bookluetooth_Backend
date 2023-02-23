@@ -2,19 +2,19 @@ package cotato.Bookluetooth.users.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequiredArgsConstructor
 @Controller
 public class LogController {
 
-    @GetMapping("/")
-    public String loggedin() {
+    @RequestMapping("/")
+    public String loginSuccess() {
         return "loginSuccess";
     }
 
-    @GetMapping("/logoutSuccess")
-    public String loggedout() {
+    @RequestMapping("/logoutSuccess")
+    public String logoutSuccess() {
         return "logoutSuccess";
     }
 }
