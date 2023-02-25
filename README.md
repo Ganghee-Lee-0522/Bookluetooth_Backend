@@ -2,7 +2,7 @@
 
 </br>
 
-## 📚 About Team [Bookluetooth](https://www.notion.so/3be82510a0a64977a7f8a83295f8df5c)  
+## 📚 About Team [Bookluetooth](https://cotato-bookluetooth.notion.site/3be82510a0a64977a7f8a83295f8df5c)
 | Android | Android | Design | Server | Server |
 | --- | --- | --- | --- | --- |  
 | ![image](https://user-images.githubusercontent.com/79368467/221369882-4c9f3b10-b96d-4ff0-b867-5d96f31b44fd.png) | ![image](https://user-images.githubusercontent.com/79368467/221369845-9e061ef5-515b-42ef-93f3-b26e81d026b6.png) | ![image](https://user-images.githubusercontent.com/79368467/221369868-1ed05deb-bd13-4349-be48-26f6ac8351c1.png) | ![image](https://user-images.githubusercontent.com/79368467/221369903-0bae6d09-b1c7-4e76-b2bb-91b971ec81fc.png) | ![image](https://user-images.githubusercontent.com/79368467/221369896-51973073-48d4-4a87-be73-887fcc1da28e.png) |
