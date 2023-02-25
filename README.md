@@ -1,11 +1,59 @@
-# SNS형 독서 기록 앱, Bookluetooth_Backend
+# 📕 SNS형 독서 기록 앱, Bookluetooth_Backend
 
-## 📘 About Team [Bookluetooth](https://www.notion.so/3be82510a0a64977a7f8a83295f8df5c)  
-| Android | Android | Desgin | Server | Server |
+</br>
+
+## 📚 About Team [Bookluetooth](https://www.notion.so/3be82510a0a64977a7f8a83295f8df5c)  
+| Android | Android | Design | Server | Server |
 | --- | --- | --- | --- | --- |  
-|  오승미  |  이유나  |  장윤진  |  이강희  |  조용헌  |  
+| ![image](https://user-images.githubusercontent.com/79368467/221369882-4c9f3b10-b96d-4ff0-b867-5d96f31b44fd.png) | ![image](https://user-images.githubusercontent.com/79368467/221369845-9e061ef5-515b-42ef-93f3-b26e81d026b6.png) | ![image](https://user-images.githubusercontent.com/79368467/221369868-1ed05deb-bd13-4349-be48-26f6ac8351c1.png) | ![image](https://user-images.githubusercontent.com/79368467/221369903-0bae6d09-b1c7-4e76-b2bb-91b971ec81fc.png) | ![image](https://user-images.githubusercontent.com/79368467/221369896-51973073-48d4-4a87-be73-887fcc1da28e.png) |
+| 오승미 | 이유나 | 장윤진 | 이강희 | 조용헌 |  
 
-## 📘 About Bookluetooth
+</br>
+
+## 📚 [API](https://github.com/quiet-honey/Bookluetooth_Backend/wiki)
+### 📕 사용자
+- [GET] 회원 정보 조회
+- [PATCH] 회원 이름 수정
+- [PATCH] 회원 사진 수정
+- [DELETE] 회원 탈퇴
+
+### 📙 리뷰
+- [POST] 리뷰 등록
+- [POST] 리뷰 좋아요
+- [GET] 내 리뷰 조회
+- [GET] 리뷰 ID로 리뷰 조회
+- [GET] 사용자 ID로 리뷰 조회
+- [GET] 리뷰 좋아요 조회
+- [PATCH] 리뷰 수정
+- [DELETE] 리뷰 삭제
+- [DELETE] 리뷰 좋아요 취소
+
+### 📒 댓글
+- [POST] 댓글 등록
+- [POST] 댓글 좋아요
+- [GET] 댓글 조회
+- [PATCH] 댓글 수정
+- [DELETE] 댓글 삭제
+- [DELETE] 댓글 좋아요 취소
+
+### 📗 위시리스트
+- [POST] 위시리스트 추가
+- [GET] 위시리스트 조회
+- [DELETE] 위시리스트 삭제
+
+### 📘 팔로우
+- [POST] 팔로우 맺기
+- [GET] 팔로워 조회
+- [GET] 팔로이 조회
+- [DELETE] 팔로우 끊기
+
+### 📚 책 검색
+- [GET] 저자로 책 검색
+- [GET] 표제로 책 검색
+
+</br>
+
+## 📚 About Bookluetooth
 ![001](https://user-images.githubusercontent.com/79368467/221361532-27a3d7e1-ea03-449c-a5f2-c2fadfa689ca.png)
 ![002](https://user-images.githubusercontent.com/79368467/221361538-00ffbdc9-9372-4b5a-a6da-445640e87115.png)
 ![003](https://user-images.githubusercontent.com/79368467/221361544-8055a3c4-9725-45e6-ae64-a2f5fbd330c1.png)
