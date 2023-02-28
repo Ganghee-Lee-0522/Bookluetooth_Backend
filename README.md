@@ -1,4 +1,5 @@
-# 📕 SNS형 독서 기록 앱, Bookluetooth_Backend
+# 📕 SNS형 독서 기록 앱, Bookluetooth
+<img width="171" alt="booklogo" src="https://user-images.githubusercontent.com/79368467/221818269-92741bb3-7f20-422b-a399-8a210543ebc1.png">
 
 </br>
 
